@@ -75,6 +75,10 @@ class LinkList:
             itr = itr.next
             count += 1
 
+    def Clear(self):
+        self.head = None
+        return
+
     def Display(self):
         if self.head is None:
             print("LinkList is Empty")
@@ -97,4 +101,6 @@ if __name__ == '__main__':
     mylist.InserAt(1, 25)
     mylist.Remove(2)
     print(mylist.Length())
+    mylist.Display()
+    mylist.Clear()
     mylist.Display()
