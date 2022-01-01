@@ -18,7 +18,7 @@ class LinkList:
 
     def InserAtTheEnd(self, data):
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = Node(data)
             return
 
         itr = self.head
@@ -42,7 +42,7 @@ class LinkList:
         itr = self.head
         count = 0
         while itr:
-            if count == index:
+            if count == index-1:
                 NewNode = Node(data, itr.next)
                 itr.next = NewNode
                 break
@@ -59,7 +59,7 @@ class LinkList:
         return count
 
     def Remove(self, index):
-        if index < 0 or index >= self.Length():
+        if index < 0 or index > self.Length():
             raise Exception("Invalid Index")
 
         if index == 0:
@@ -69,7 +69,7 @@ class LinkList:
         itr = self.head
         count = 0
         while itr:
-            if count == index - 1:
+            if count == index - 2:
                 itr.next = itr.next.next
                 break
             itr = itr.next
@@ -98,8 +98,8 @@ if __name__ == '__main__':
     mylist.InserAtTheBegining(20)
     mylist.InserAtTheEnd(30)
     mylist.InserAtTheEnd(40)
-    mylist.InserAt(1, 25)
-    mylist.Remove(2)
+    mylist.InserAt(2, 25)
+    mylist.Remove(5)
     print(mylist.Length())
     mylist.Display()
     mylist.Clear()
