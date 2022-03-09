@@ -33,7 +33,7 @@ class LinkList:
             self.InserAtTheEnd(data)
 
     def InserAt(self, index, data):
-        if index < 0 or index >= self.Length():
+        if index < 0 or index > self.Length():
             raise Exception("Invalid Index")
 
         if index == 0:
@@ -60,7 +60,7 @@ class LinkList:
 
     def Remove(self, index):
         if index < 0 or index > self.Length():
-            raise Exception("Invalid Index")
+            print("Invalid Index")
 
         if index == 0:
             self.head = self.head.next
