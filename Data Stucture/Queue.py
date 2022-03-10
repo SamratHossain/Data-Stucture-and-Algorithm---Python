@@ -6,6 +6,12 @@ class Queue:
     def Size(self):
         return len(self.queue)
 
+    def isEmpty(self):
+        if self.Size() == 0:
+            return True
+        else:
+            return False
+
     def EnQueue(self, value):
         if self.Size() >= self.limit:
             print("Queue Overflow")
@@ -13,17 +19,19 @@ class Queue:
             self.queue.append(value)
 
     def DeQueue(self):
-        self.queue.pop(0)
+        if self.isEmpty():
+            print("Queue is UnderFlow")
+        else:
+            self.queue.pop(0)
 
     def Top(self):
-        size = self.Size()
-        print(self.queue[size-1])
-
-    def isEmpty(self):
-        if self.Size() == 0:
+        if self.isEmpty():
             print("Queue is Empty")
         else:
-            print("Queue is not Empty")
+            size = self.Size()
+            print(self.queue[size-1])
+
+    
 
     def Display(self):
         print(self.queue)
@@ -32,13 +40,13 @@ class Queue:
 if __name__ == '__main__':
 
     queue = Queue()
-    queue.EnQueue(5)
-    queue.EnQueue(10)
-    queue.EnQueue(15)
-    queue.EnQueue(20)
+    # queue.EnQueue(5)
+    # queue.EnQueue(10)
+    # queue.EnQueue(15)
+    # queue.EnQueue(20)
     queue.DeQueue()
-    queue.isEmpty()
+    # queue.isEmpty()
     queue.Display()
-    print(queue.Size())
-    queue.Top()
+    # print(queue.Size())
+    # queue.Top()
     
