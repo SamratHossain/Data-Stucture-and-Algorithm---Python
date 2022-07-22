@@ -33,16 +33,19 @@ class BinaryTree:
         self.postorderTravers(root.rightChild)
         print(root.data, end='==>')
 
-tree = BinaryTree(1)
-tree.root.leftChild = Node(2)
-tree.root.rightChild = Node(3)
-tree.root.leftChild.leftChild = Node(4)
-tree.root.leftChild.rightChild = Node(5)
-tree.root.rightChild.leftChild = Node(6)
-tree.root.rightChild.rightChild = Node(7)
+tree = BinaryTree(8)
+tree.root.leftChild = Node(3)
+tree.root.rightChild = Node(10)
+tree.root.leftChild.leftChild = Node(1)
+tree.root.leftChild.rightChild = Node(6)
+tree.root.leftChild.rightChild.leftChild = Node(4)
+tree.root.leftChild.rightChild.rightChild = Node(7)
+# tree.root.rightChild.leftChild = Node(6)
+tree.root.rightChild.rightChild = Node(14)
+tree.root.rightChild.leftChild = Node(13)
 
 
 tree.preorderTravers(tree.root)
-tree.postorderTravers(tree.root)
-tree.inorderTravers(tree.root)
+# tree.postorderTravers(tree.root)
+# tree.inorderTravers(tree.root)
 
