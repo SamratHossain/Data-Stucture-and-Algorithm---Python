@@ -28,7 +28,7 @@ class BinarySearchTree:
             return None
         while currentNode.leftChild != None:
             currentNode = currentNode.leftChild
-        return print(currentNode.data)
+        return print(f"Minimum Value is: {currentNode.data}")
 
     def FindMax(self, root):
         currentNode = root
@@ -36,7 +36,28 @@ class BinarySearchTree:
             return None
         while currentNode.rightChild != None:
             currentNode = currentNode.rightChild
-        return print(currentNode.data)
+        return print(f"Max Value is: {currentNode.data}")
+
+    def InsertNode(self, root, node):
+        if root == None:
+            root = node
+        else:
+            if node.data < root.data:
+                if root.leftChild == None:
+                    root.leftChild = node
+                    print(f"Insert Node Successfully LeftChild {node.data}")
+                else:
+                    self.InsertNode(root.leftChild, node)
+                    
+            else:
+                if root.rightChild == None:
+                    root.rightChild = node
+                    print(f"Insert Node Successfully RightChild {node.data}")
+                else:
+                    self.InsertNode(root.rightChild, node)
+                    
+
+    
 
     
 
@@ -53,6 +74,8 @@ tree.root.rightChild.rightChild.leftChild = Node(13)
 
 # tree.FindElement(tree.root, 13)
 # tree.FindMin(tree.root)
+node = Node(17)
+tree.InsertNode(tree.root, node)
 tree.FindMax(tree.root)
 
 
