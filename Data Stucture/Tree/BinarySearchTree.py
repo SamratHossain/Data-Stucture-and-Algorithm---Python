@@ -57,8 +57,40 @@ class BinarySearchTree:
                     self.InsertNode(root.rightChild, node)
                     
 
-    
+    def Successor(self, root):
+        root = root.rightChild
+        while root.leftChild:
+            root = root.leftChild
+        return root.data
 
+    def Predecessor(self, root):
+        root = root.leftChild
+        while root.rightChild:
+            root = root.rightChild
+        return root.data
+
+
+    def DeleteNode(self, root, key):
+        if not root:
+            return None
+
+        if root.data < key:
+            root.rightChild = self.DeleteNode(root.rightChild, key)
+        elif root.data > key:
+            root.leftChild = self.DeleteNode(root.leftChild, key)
+        else:
+            if not (root.leftChild or root.rightChild):
+                root = None
+
+            elif root.rightChild:
+                root.data = self.Successor(root)
+                root.rightChild = self.DeleteNode(root.rightChild, root.data)
+
+            elif root.leftChild:
+                root.data = self.Predecessor(root)
+                root.leftChild = self.DeleteNode(root.leftChild, root.data)
+
+        return root
     
 
 tree = BinarySearchTree(8)
@@ -76,6 +108,10 @@ tree.root.rightChild.rightChild.leftChild = Node(13)
 # tree.FindMin(tree.root)
 node = Node(17)
 tree.InsertNode(tree.root, node)
+tree.FindMax(tree.root)
+tree.DeleteNode(tree.root, 17)
+tree.DeleteNode(tree.root, 14)
+tree.DeleteNode(tree.root, 13)
 tree.FindMax(tree.root)
 
 
