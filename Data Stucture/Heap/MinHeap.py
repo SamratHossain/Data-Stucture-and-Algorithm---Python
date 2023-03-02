@@ -19,10 +19,10 @@ class MinHeap:
             return None
         if len(self.heap) == 1:
             self.heap.pop()
-        max_val = self.heap[0]
+        min_val = self.heap[0]
         self.heap[0] = self.heap.pop()
         self.bubbledown(0)
-        return max_val
+        return min_val
 
 
     def bubbledown(self, index):
