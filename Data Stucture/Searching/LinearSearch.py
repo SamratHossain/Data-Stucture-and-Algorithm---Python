@@ -1,10 +1,10 @@
-List = [2,4,5,8,9,15,20,35,50,55]
+list_of_numbers = [2,4,5,8,9,15,20,35,50,55]
 
-def LinearSearch(List, Value):
-    for i in range(len(List)):
-        if List[i] == Value:
-            return print(f"{List[i]} Found in index {i}")
+def LinearSearch(list_of_numbers, Value):
+    for i in range(len(list_of_numbers)):
+        if list_of_numbers[i] == Value:
+            return print(f"{list_of_numbers[i]} Found in index {i}")
             
     print("Data Not Found!")
 
-LinearSearch(List, 60)
+LinearSearch(list_of_numbers, 15)
