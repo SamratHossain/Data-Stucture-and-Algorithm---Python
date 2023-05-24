@@ -11,7 +11,7 @@ class InsertionSort:
         print(unsorted_array)
             
 
-unsorted_array = [5,10,4,9,7,2,15,20,8,30]
+unsorted_array = [5,10,4,9,30,7,2,15,20,8]
 
 print(unsorted_array)
 sorted_array = InsertionSort()

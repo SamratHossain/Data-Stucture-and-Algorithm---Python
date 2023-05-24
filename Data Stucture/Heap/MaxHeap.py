@@ -19,10 +19,11 @@ class MaxHeap:
     def _bubble_up(self, index):
         if index == 0:
             return
-        parent = index - 1 // 2
+        parent = (index - 1) // 2
         if self.heap[index] > self.heap[parent]:
             self.heap[index], self.heap[parent] = self.heap[parent], self.heap[index]
             self._bubble_up(parent)
+
 
     def _bubble_down(self, index):
         left = 2 * index + 1
@@ -37,12 +38,15 @@ class MaxHeap:
             self._bubble_down(largest)
 
 heap = MaxHeap()
-heap.push(9)
-heap.push(8)
-heap.push(6)
-heap.push(5)
-heap.push(2)
-heap.push(1)
-print(heap.pop(), end="") 
-print(heap.pop(), end="")
+heap.push(50)
+heap.push(100)
+heap.push(150)
+heap.push(200)
+heap.push(70)
+heap.push(300)
+print(heap.heap)
 print(heap.pop())
+# print(heap.heap)
+# print(heap.pop())
+# print(heap.pop())
+
